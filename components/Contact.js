@@ -22,7 +22,7 @@ const Contact = () => {
                         Interested in working together?
                         <span className='flex items-center space-x-3 group'>
                             <span className=' transition-colors'>
-                                Let's talk
+                                Let`s talk
                             </span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={50} height={50} className="text-[#075fe4] transition-colors" fill="none">
                                 <path d="M20.0001 11.9998L4.00012 11.9998" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
