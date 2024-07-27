@@ -33,7 +33,7 @@ const Navbar = () => {
     }
     return (
 
-        <div className='page-content xl:flex w-full flex-col sm:flex-row justify-around items-center space-y-6 sm:space-y-0 sm:space-x-16 h-[7rem] z-50 bg-[#1B1F24] xl:shadow-none shadow-lg shadow-[#15151570] fixed top-0 py-4'>
+        <div className='page-content flex w-full flex-col sm:flex-row justify-around items-center space-y-6 sm:space-y-0 sm:space-x-16 h-[7rem] z-50 bg-[#1B1F24] xl:shadow-none shadow-lg shadow-[#15151570] fixed top-0 py-4'>
             <Image className='invert' width={200} src={logo} alt="" />
             <ul className='text-[#F0F2F4] flex  text-xl transition-colors delay-0 duration-75 hover:text-[#8e9091]'>
                 <li onClick={handleHome} className='w-24 hidden xl:flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]'>Home</li>
