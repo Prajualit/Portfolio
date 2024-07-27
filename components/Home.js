@@ -8,68 +8,71 @@ const Home = () => {
     const handleAbout = () => {
         //scroll the page to the about section
         window.scrollTo({
-            top: 940,
+            top: 800,
             behavior: 'smooth'
         })
     }
+    
     return (
-        <div className='relative h-[100vh] flex items-center justify-between'>
-            <div className='w-full flex absolute items-center justify-center bg-center -z-10'>
-                <Image src={pp} width={900} className='' alt="" />
+        <div className='relative pt-32 xl:pt-52 flex xl:items-center justify-between flex-col xl:flex-row items-start space-y-12 xl:space-y-0'>
+            <div className='page-content w-full flex absolute items-end justify-center bg-center h-full -z-10'>
+                <Image className='xl:w-[800px] w-[700px] hidden xl:block' src={pp} alt="" />
             </div>
-            <div className='flex flex-col ml-32 space-y-16'>
+            <div className='page-content flex flex-col px-10 sm:px-16 xl:ml-20 xl:space-y-16 space-y-6'>
                 <div className='w-1/4 h-2 bg-white'></div>
-                <div className='w-[35rem] flex flex-col space-y-7'>
-                    <h1 className='text-white font-[700] text-[76px] leading-[76px]'>
+                <div className='w-full xl:w-[35rem] flex flex-col space-y-7'>
+                    <h1 className='text-white  font-[700] xl:text-[76px] text-[35px] sm:text-[46px] sm:leading-[76px]'>
                         I’m Prajualit, a MERN Stack Developer
                     </h1>
-                    <p className=' font-[400] text-[18px]  leading-[30px] text-[#c3cad5]'></p>
                 </div>
-                <button onClick={handleAbout} className='flex rounded-full p-8 bg-[#075FE4] w-fit transition-transform ease-in-out duration-300 delay-0 hover:scale-90'>
+                <button onClick={handleAbout} className='flex rounded-full p-4 xl:p-8 bg-[#075FE4] w-fit transition-transform ease-in-out duration-300 delay-0 hover:scale-90'>
                     <svg className='animate-bounce' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={50} height={50} color={"white"} fill={"none"}>
                         <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
             </div>
-            <div className='mr-32 flex flex-col w-[23rem] space-y-8'>
-                <div className='flex flex-col space-y-8 items-start'>
-                    <div className='flex flex-col items-start space-y-5'>
-                        <h1 className='text-white font-[700] leading-[20px] text-[18px]'>ABOUT ME</h1>
-                        <p className='text-[#c3cad5] font-[400] text-[18px]  leading-[30px]'>I am a passionate Front-end and Back-end Developer. I am always excited to learn new skills and add them to my arsenal...</p>
+            <div className='page-content xl:mr-32 flex flex-col w-full xl:w-[23rem] space-y-8 items-center xl:items-start'>
+                <div className='flex flex-col md:flex-row xl:flex-col xl:justify-start justify-center md:space-y-0 space-y-8 xl:space-y-8 md:space-x-5 xl:space-x-0 items-center xl:items-start xl:px-0 px-16'>
+                    <div className='flex flex-col space-y-8 items-start md:w-2/4 xl:w-full'>
+                        <div className='flex flex-col items-start space-y-5'>
+                            <h1 className='text-white font-[700] leading-[20px] text-[18px]'>ABOUT ME</h1>
+                            <p className='text-[#c3cad5] font-[400] text-[18px] leading-[30px]'>I am a passionate Front-end and Back-end Developer. I am always excited to learn new skills and add them to my arsenal...</p>
+                        </div>
+                        <button onClick={handleAbout} className='text-[#f2f1ff] font-[400] text-[16px] leading-[18px] flex items-center  flex-col space-y-2 group'>
+                            <div className='flex space-x-1 items-center'>
+                                <span>
+                                    LEARN MORE
+                                </span>
+                                <svg className='transition-transform group-hover:translate-x-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"white"} fill={"none"}>
+                                    <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                            <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'>
+                            </div>
+                        </button>
+                        <div className='h-[2px] bg-[#373737] w-full hidden xl:block'></div>
                     </div>
-                    <button onClick={handleAbout} className='text-[#f2f1ff] font-[400] text-[16px] leading-[18px] flex items-center  flex-col space-y-2 group'>
-                        <div className='flex space-x-1 items-center'>
-                            <span>
-                                LEARN MORE
-                            </span>
-                            <svg className='transition-transform group-hover:translate-x-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"white"} fill={"none"}>
-                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                    <div className='flex flex-col space-y-8 items-start md:w-2/4 xl:w-full'>
+                        <div className='flex flex-col items-start space-y-5'>
+                            <h1 className='text-white font-[700] leading-[20px] text-[18px]'>MY WORK</h1>
+                            <p className='text-[#c3cad5] font-[400] text-[18px] leading-[30px]'>I have created several minor projects like UI/UX clones of Twitter, Spotify and Netflix...</p>
                         </div>
-                        <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'>
-                        </div>
-                    </button>
-                    <div className='h-[2px] bg-[#373737] w-full'></div>
-                </div>
-                <div className='flex flex-col space-y-8 items-start'>
-                    <div className='flex flex-col items-start space-y-5'>
-                        <h1 className='text-white font-[700] leading-[20px] text-[18px]'>MY WORK</h1>
-                        <p className='text-[#c3cad5] font-[400] text-[18px]  leading-[30px]'>I have created several minor projects like UI/UX clones of Twitter, Spotify and Netflix...</p>
+                        <button onClick={handleAbout} className='text-[#f2f1ff] font-[400] text-[16px] leading-[18px] flex items-center flex-col space-y-2 group'>
+                            <div className='flex space-x-1 items-center'>
+                                <span>
+                                    BROWSE PORTFOLIO
+                                </span>
+                                <svg className='transition-transform group-hover:translate-x-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"white"} fill={"none"}>
+                                    <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </div>
+                            <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'>
+                            </div>
+                        </button>
+                        <div className='h-[1px] bg-[#373737] w-full hidden xl:block'></div>
                     </div>
-                    <button onClick={handleAbout} className='text-[#f2f1ff] font-[400] text-[16px] leading-[18px] flex items-center flex-col space-y-2 group'>
-                        <div className='flex space-x-1 items-center'>
-                            <span>
-                                BROWSE PORTFOLIO
-                            </span>
-                            <svg className='transition-transform group-hover:translate-x-2' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"white"} fill={"none"}>
-                                <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                        </div>
-                        <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'>
-                        </div>
-                    </button>
-                    <div className='h-[1px] bg-[#373737] w-full'></div>
                 </div>
+                <div className='h-[1px] bg-[#373737] w-[90%] xl:hidden'></div>
                 <div className='text-white font-[700] text-[20px] leading-[20px]'>
                     FOLLOW ME
                 </div>
@@ -110,6 +113,9 @@ const Home = () => {
                         </svg>
                     </Link>
 
+                </div>
+                <div className='flex '>
+                    <Image className='xl:w-[800px] w-[500px] md:w-[700px] xl:hidden ' src={pp} alt="" />
                 </div>
             </div>
         </div >

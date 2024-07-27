@@ -5,36 +5,42 @@ import pp from './assets/pp.png'
 import Link from 'next/link'
 
 const Footer = () => {
+    const handleHome = () => {
+        window.scrollTo({
+            top:0,
+            behavior: 'smooth'
+        })
+    }
     const handleAbout = () => {
         //scroll the page to the about section
         window.scrollTo({
-            top: 940,
+            top: 800,
             behavior: 'smooth'
         })
     }
     const handleSkills = () => {
         //scroll the page to the about section
         window.scrollTo({
-            top: 1900,
+            top: 1600,
             behavior: 'smooth'
         })
     }
     const handleContact = () => {
         //scroll the page to the about section
         window.scrollTo({
-            top: 2835,
+            top: 2400,
             behavior: 'smooth'
         })
     }
     return (
-        <div className='h-[50vh] border-t-[1px] flex flex-col border-[#465264] justify-around text-white'>
-            <div className='flex items-center justify-around h-full'>
-                <div className='flex flex-col items-start space-y-6'>
-                    <div className='flex items-center space-x-7'>
+        <div className='page-content border-t-[1px] flex flex-col border-[#465264] justify-around text-white'>
+            <div className='flex xl:items-center items-center sm:items-start justify-around h-full p-16 xl:flex-row flex-col xl:space-y-0 space-y-10'>
+                <div className='flex flex-col items-center xl:items-start space-y-6'>
+                    <div className='flex flex-col sm:flex-row space-y-6 sm:space-y-0 items-center sm:space-x-7'>
                         <Image className='rounded-full bg-[#272f3a] shadow-[#ffffff37] shadow-inner' src={pp} width={115} height={115} alt="" />
                         <div className='flex flex-col'>
-                            <span className='font-[700] text-[34px] leading-[49px]'>Prajualit Tickoo</span>
-                            <span className='font-[400] text-[#8895aa] text-[22px] leading-[26px]'>Student at NIT Hamirpur</span>
+                            <span className='font-[700] text-[34px] text-center leading-[49px]'>Prajualit Tickoo</span>
+                            <span className='font-[400] text-[#8895aa] text-center text-[22px] leading-[26px]'>Student at NIT Hamirpur</span>
                         </div>
                     </div>
                     <div className='flex space-x-4 items-center'>
@@ -76,8 +82,8 @@ const Footer = () => {
 
                     </div>
                 </div>
-                <div className='flex flex-col space-y-7 w-[33rem]'>
-                    <div className='font-[700] leading-[64px] text-[52px] flex space-x-2 items-center'>
+                <div className='flex flex-col space-y-7 md:w-[33rem]'>
+                    <div className='font-[700] leading-[64px] text-[36px] xl:text-[52px] flex space-x-2 items-center'>
                         <span>
                             Get in touch
                         </span>
@@ -86,7 +92,7 @@ const Footer = () => {
                             <path d="M15.0003 17C15.0003 17 20.0002 13.3176 20.0002 12C20.0002 10.6824 15.0002 7 15.0002 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between md:flex-row flex-col md:space-y-0 space-y-8'>
                         <div className='flex flex-col space-y-3'>
                             <span className='font-[700] text-[16px] leading-[18px] text-[#c3cad5]'>EMAIL ME:</span>
                             <button className='text-[#f2f1ff] font-[400] text-[16px] leading-[18px] flex items-start flex-col space-y-2 w-fit group'>
@@ -120,19 +126,19 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col h-[25%] justify-center space-y-4'>
-                <div className='h-[1px] bg-[#828282] w-[90%] mx-auto'></div>
-                <div className='flex justify-around'>
-                    <div className='flex justify-around items-center h-'>
+            <div className='flex p-5 flex-col h-[25%] justify-center space-y-4'>
+                <div className='h-[1px] bg-[#828282] w-[95%] mx-auto'></div>
+                <div className='flex justify-around xl:flex-row flex-col items-center xl:space-y-0 space-y-6'>
+                    <div className='md:flex justify-around items-center hidden '>
                         <ul className='text-[#F0F2F4] flex  text-xl transition-colors delay-0 duration-75 hover:text-[#8e9091] '>
-                            <li className='w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]'>Home</li>
+                            <li onClick={handleHome} className='w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]'>Home</li>
                             <li onClick={handleAbout} className='w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]'>About</li>
                             <li onClick={handleSkills} className='w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]'>Skills</li>
                             <li className='w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]'>Portfolio</li>
                             <li onClick={handleContact} className='w-24 flex items-center justify-center cursor-pointer transition-colors hover:text-[#F0F2F4]'>Contact</li>
                         </ul>
                     </div>
-                    <div className='font-[400] text-[18px] leading-[30px]'>
+                    <div className='font-[400] text-[18px] text-center leading-[30px]'>
                         Copyright © Prajualit Tickoo | Designed by Prajualit Tickoo - Powered by Next JS
                     </div>
                 </div>

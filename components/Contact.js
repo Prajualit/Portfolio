@@ -14,11 +14,11 @@ const Contact = () => {
     }
 
     return (
-        <div className='h-screen bg-[#22272F] text-white flex items-center justify-around'>
-            <div className='flex flex-col justify-center w-[30rem] space-y-8'>
+        <div className='page-content xl:py-52 p-10 sm:p-20 bg-[#22272F] text-white flex flex-col xl:flex-row space-y-12 xl:space-y-0 xl:items-center justify-around'>
+            <div className='flex flex-col justify-center md:w-[30rem] space-y-8'>
                 <div className='w-3/12 h-1.5 bg-white'></div>
                 <div>
-                    <span className='font-[700] leading-[64px] text-[52px]'>
+                    <span className='font-[700] leading-[64px] text-[40px] md:text-[52px]'>
                         Interested in working together?
                         <span className='flex items-center space-x-3 group'>
                             <span className=' transition-colors'>
@@ -33,19 +33,19 @@ const Contact = () => {
                 </div>
             </div>
             <div className='flex flex-col space-y-16'>
-                <form action='' onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-6 w-[35rem]'>
+                <form action='' onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-6 md:w-[35rem]'>
                     <div className='group'>
-                        <input className='placeholder-white bg-transparent font-[600] text-[24px] leading-[34px] py-2 outline-none' type="text" placeholder='Enter your name' {...register("username", { required: { value: true, message: "Username cannot be empty" }, minLength: { value: 3, message: "Min-Length is 3" }, maxLength: { value: 8, message: "Max-Length is 8" } })} />
+                        <input className='placeholder-white bg-transparent font-[600] sm:text-[20px] md:text-[24px] leading-[34px] py-2 outline-none ' type="text" placeholder='Enter your name' {...register("username", { required: { value: true, message: "Username cannot be empty" }, minLength: { value: 3, message: "Min-Length is 3" }, maxLength: { value: 8, message: "Max-Length is 8" } })} />
                         {errors.username && <div className='text-red-700 transition-all font-semibold text-lg'>{errors.username.message}</div>}
                         <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'></div>
                     </div>
                     <div className='group'>
-                        <input className='placeholder-white bg-transparent font-[600] text-[24px] leading-[34px] py-3 outline-none' type="text" placeholder='Enter your email address' {...register("email", { required: { value: true, message: "Email cannot be empty" } })} />
+                        <input className='placeholder-white bg-transparent font-[600] sm:text-[20px] md:text-[24px] leading-[34px] py-3 outline-none ' type="text" placeholder='Enter your email address' {...register("email", { required: { value: true, message: "Email cannot be empty" } })} />
                         {errors.email && <div className='text-red-700 transition-all font-semibold text-lg'>{errors.email.message}</div>}
                         <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'></div>
                     </div>
                     <div className='group'>
-                        <input className='placeholder-white bg-transparent font-[600] text-[24px] leading-[34px] py-3 pb-20 outline-none' type="text" placeholder='Describe your project' {...register("desc", { required: { value: true, message: "Description cannot be empty" }, minLength: { value: 8, message: 'Description is too short' } })} />
+                        <input className='placeholder-white bg-transparent font-[600] sm:text-[20px] md:text-[24px] leading-[34px] py-3 pb-20 outline-none ' type="text" placeholder='Describe your project' {...register("desc", { required: { value: true, message: "Description cannot be empty" }, minLength: { value: 8, message: 'Description is too short' } })} />
                         {errors.desc && <div className='text-red-700 transition-all font-semibold text-lg'>{errors.desc.message}</div>}
                         <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'></div>
                     </div>

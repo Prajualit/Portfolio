@@ -17,22 +17,80 @@ body {
   font-weight: 400;
   font-style: normal;
 }
+
 /* Add this to your globals.css or an imported CSS file */
 .slide-enter {
   opacity: 0;
   transform: translateX(100%);
 }
+
 .slide-enter-active {
   opacity: 1;
   transform: translateX(0);
   transition: opacity 300ms, transform 300ms;
 }
+
 .slide-exit {
   opacity: 1;
   transform: translateX(0);
 }
+
 .slide-exit-active {
   opacity: 0;
   transform: translateX(-100%);
   transition: opacity 300ms, transform 300ms;
+}
+
+/* For WebKit browsers */
+::-webkit-scrollbar {
+  width: 12px;
+  /* Width of the scrollbar */
+  height: 12px;
+  /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #2c2c2c;
+  /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #555;
+  /* Color of the scrollbar thumb */
+  border-radius: 10px;
+  /* Roundness of the scrollbar thumb */
+  border: 3px solid #2c2c2c;
+  /* Space around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+  /* Color of the scrollbar thumb when hovered */
+}
+
+
+
+body {
+  scrollbar-color: #555 #2c2c2c;
+  /* Color of the thumb and track */
+  scrollbar-width: thin;
+  /* Width of the scrollbar */
+  
+}
+/* Define keyframe animation for smooth appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to all content */
+.page-content {
+  animation: fadeIn 1s ease-in-out;
+  /* You can also add more styles here if needed */
 }
