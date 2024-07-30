@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Footer = () => {
     const handleHome = () => {
         window.scrollTo({
-            top:0,
+            top: 0,
             behavior: 'smooth'
         })
     }
@@ -95,7 +95,7 @@ const Footer = () => {
                     <div className='flex justify-between md:flex-row flex-col md:space-y-0 space-y-8'>
                         <div className='flex flex-col space-y-3'>
                             <span className='font-[700] text-[16px] leading-[18px] text-[#c3cad5]'>EMAIL ME:</span>
-                            <button className='text-[#f2f1ff] font-[400] text-[16px] leading-[18px] flex items-start flex-col space-y-2 w-fit group'>
+                            <a href="mailto:prajualit@gmail.com" className='text-[#f2f1ff] font-[400] text-[16px] leading-[18px] flex items-start flex-col space-y-2 w-fit group'>
                                 <div className='flex space-x-1 items-center'>
                                     <span className='font-[700] leading-[28px] text-[22px]'>
                                         prajualit@gmail.com
@@ -106,7 +106,8 @@ const Footer = () => {
                                 </div>
                                 <div className='h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors'>
                                 </div>
-                            </button>
+                            </a>
+
                         </div>
                         <div className='flex flex-col space-y-3'>
                             <span className='font-[700] text-[16px] leading-[18px] text-[#c3cad5]'>CALL ME:</span>
