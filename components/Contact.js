@@ -87,7 +87,7 @@ const Contact = () => {
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Enter your name"
                     />
-                    <div className="h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors"></div>
+                    <div className="h-[1px] bg-[#828282] w-full group-hover:bg-white group-focus-within:bg-white transition-colors"></div>
                 </div>
                 <div className="group">
                     <input
@@ -98,7 +98,7 @@ const Contact = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="Enter your email address"
                     />
-                    <div className="h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors"></div>
+                    <div className="h-[1px] bg-[#828282] w-full group-hover:bg-white group-focus-within:bg-white transition-colors"></div>
                 </div>
                 <div className="group">
                     <input
@@ -109,7 +109,7 @@ const Contact = () => {
                         onChange={(e) => setMessage(e.target.value)}
                         placeholder="Describe your project"
                     />
-                    <div className="h-[1px] bg-[#828282] w-full group-hover:bg-white transition-colors"></div>
+                    <div className="h-[1px] bg-[#828282] w-full group-hover:bg-white group-focus-within:bg-white transition-colors"></div>
                 </div>
                 {error && <div className="text-red-500">{error}</div>}
                 {success && <div className="text-[#075fe4]">{success}</div>}
