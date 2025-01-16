@@ -65,7 +65,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="page-content xl:py-52 p-10 sm:p-20 bg-[#22272F] text-white flex flex-col xl:flex-row space-y-12 xl:space-y-0 xl:items-center justify-around">
+        <div id='contact' className="page-content xl:py-52 p-10 sm:p-20 bg-[#22272F] text-white flex flex-col xl:flex-row space-y-12 xl:space-y-0 xl:items-center justify-around">
             <div className="flex flex-col justify-center md:w-[30rem] space-y-8">
                 <div className="w-3/12 h-1.5 bg-white"></div>
                 <div>

@@ -60,7 +60,7 @@ const Skills = () => {
     const currentSkills = skillsData.slice(currentPage * skillsPerPage, (currentPage + 1) * skillsPerPage);
 
     return (
-        <div className="page-content py-20 relative text-white flex flex-col items-center justify-center">
+        <div id="skills" className="page-content py-20 relative text-white flex flex-col items-center justify-center">
 
             <div className="flex flex-col space-y-16">
                 <div className="flex px-4 flex-col xl:flex-row w-full justify-around items-center xl:items-end space-y-6 xl:space-y-0">

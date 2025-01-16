@@ -6,6 +6,10 @@ body {
   background-color: #1B1F24;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 

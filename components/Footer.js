@@ -33,7 +33,7 @@ const Footer = () => {
     });
   };
   return (
-    <div className="page-content border-t-[1px] flex flex-col border-[#465264] justify-around text-white">
+    <div id="contact" className="page-content border-t-[1px] flex flex-col border-[#465264] justify-around text-white">
       <div className="flex xl:items-center items-center sm:items-start justify-around h-full p-16 xl:flex-row flex-col xl:space-y-0 space-y-10">
         <div className="flex flex-col items-center xl:items-start space-y-6">
           <div className="flex flex-col sm:flex-row space-y-6 sm:space-y-0 items-center sm:space-x-7">
@@ -298,33 +298,29 @@ const Footer = () => {
         <div className="flex justify-around xl:flex-row flex-col items-center xl:space-y-0 space-y-6">
           <div className="md:flex justify-around items-center hidden ">
             <ul className="text-[#F0F2F4] flex  text-xl transition-colors delay-0 duration-75 hover:text-[#8e9091] ">
-              <li
-                onClick={handleHome}
+              <Link href="#home"
                 className="w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]"
               >
                 Home
-              </li>
-              <li
-                onClick={handleAbout}
+              </Link>
+              <Link href="#about"
                 className="w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]"
               >
                 About
-              </li>
-              <li
-                onClick={handleSkills}
+              </Link>
+              <Link href="#skills"
                 className="w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]"
               >
                 Skills
-              </li>
-              <li className="w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]">
+              </Link>
+              <Link href="#portfolio" className="w-24 flex items-center justify-center  cursor-pointer transition-colors hover:text-[#F0F2F4]">
                 Portfolio
-              </li>
-              <li
-                onClick={handleContact}
+              </Link>
+              <Link href="#contact"
                 className="w-24 flex items-center justify-center cursor-pointer transition-colors hover:text-[#F0F2F4]"
               >
                 Contact
-              </li>
+              </Link>
             </ul>
           </div>
           <div className="font-[400] text-[18px] text-center leading-[30px]">

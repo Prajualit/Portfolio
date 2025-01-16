@@ -14,7 +14,7 @@ const Home = () => {
     }
     
     return (
-        <div className='relative pt-32 xl:pt-52 flex xl:items-center justify-between flex-col xl:flex-row items-start space-y-12 xl:space-y-0'>
+        <div id='home' className='relative pt-32 xl:pt-52 flex xl:items-center justify-between flex-col xl:flex-row items-start space-y-12 xl:space-y-0'>
             <div className='page-content w-full flex absolute items-end justify-center bg-center h-full -z-10'>
                 <Image className='xl:w-[800px] w-[700px] hidden xl:block' src={pp} alt="" />
             </div>
