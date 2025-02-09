@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 export default function main() {
   return (
-   <main className="space-grotesk cursor-default">
+   <main className="cursor-default">
     <Navbar/>
     <Home/>
     <About/>

@@ -11,7 +11,7 @@ const About = () => {
                 <span className="font-[700] leading-[22px] text-[20px]"><span className="text-blue-600 font-[900] md:text-[23px]">/ </span>
                   ABOUT ME</span>
               </div>
-              <div className='text-[30px] md:text-[52px] md:leading-[64px] font-[700] text-center text-white'>
+              <div className='text-[30px] md:text-[45px] md:leading-[60px] font-[700] text-left text-white'>
                 I’ve been developing websites since 2023
               </div>
               <div className='md:text-[18px] leading-[30px] font-[400] text-[#c3cad5]'>I am a passionate Front-end and Back-end Developer. I am always excited to learn new skills and add them to my arsenal. My greatest strength is my temperament. You can find me singing and reading novels when I`m not writing a buggy code or trying the debug it.</div>
@@ -41,7 +41,7 @@ const About = () => {
               </div>
             </div>
             <div className='text-[18px] leading-[30px] font-[400] text-[#c3cad5]'>
-            I have created several minor projects like UI/UX clones of Twitter, Spotify and Netflix. My major projects include a Patreon Clone, a social media website called `Chirp``. I also built an e-commerce website called `Desire`.
+            I have created several minor projects like UI/UX clones of Twitter, Spotify and Netflix. My Major Projects include a full fledged food Delivery app called SnapEats, A Social Media Application called Closer and a Coconut oil E-commerce website called Kokoma.
             </div>
           </div>
         </div>
