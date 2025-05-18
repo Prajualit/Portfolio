@@ -32,18 +32,18 @@ const HeaderTop = () => {
       <div className='mx-8 hidden items-center justify-between gap-5 py-8 lg:flex'>
         <div className='flex items-center gap-5'>
           <Image
-            src='/images/aulianza-new.png'
+            src='/images/prajualit.png'
             alt='Ryan Aulia'
-            width={40}
-            height={40}
+            width={60}
+            height={60}
             rounded='rounded-full'
-            className='rotate-3 border-2 border-neutral-400 dark:border-neutral-600 lg:hover:scale-105'
+            className=' border-2 border-neutral-400 dark:border-neutral-600 lg:hover:scale-105'
           />
           {!showMenu && (
             <div className='flex items-center gap-3'>
               <Link href='/' passHref>
                 <h2 className='flex-grow  text-lg font-medium lg:text-xl'>
-                  Ryan Aulia
+                  Prajualit Tickoo
                 </h2>
               </Link>
               <Tooltip title='Verified'>
