@@ -13,9 +13,10 @@ const Story = () => {
         <span>Best Regards,</span>
         <Image
           src='/images/signature.png'
-          width={150}
-          height={150}
-          alt='Aulianza'
+          width={200}
+          height={200}
+          alt='prajualit'
+          className='invert '
         />
       </div>
     </div>
