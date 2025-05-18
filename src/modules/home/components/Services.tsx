@@ -3,17 +3,18 @@ import { BiRocket as RocketIcon } from 'react-icons/bi';
 
 import Button from '@/common/components/elements/Button';
 import Card from '@/common/components/elements/Card';
-import SectionHeading from '@/common/components/elements/SectionHeading';
 
 const Services = () => {
   return (
     <section className='space-y-5'>
       <div className='space-y-3'>
-        <SectionHeading title="What I've been working on" />
+    
         <p className='leading-[1.8] text-neutral-800 dark:text-neutral-300 md:leading-loose'>
-          I assist brands, companies, institutions, and startups in creating
-          exceptional digital experiences for their businesses through strategic
-          development services.
+          I am a full-stack developer with a focus on building web applications
+          using the MERN stack. I have experience in building RESTful APIs and
+          integrating third-party services. I am also proficient in using
+          modern front-end frameworks like React and Next.js to create
+          responsive and user-friendly interfaces.
         </p>
       </div>
       <Card className='space-y-4 rounded-xl border bg-neutral-100 p-8 dark:border-none dark:bg-[#1e1e1e]'>
