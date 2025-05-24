@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import MonacoEditor, { EditorProps } from '@monaco-editor/react';
+import type { editor } from 'monaco-editor';
 
 interface CodeEditorProps {
   code: string;
@@ -8,15 +9,11 @@ interface CodeEditorProps {
   isFullScreen?: boolean;
 }
 
-const editorConfig = {
+const editorConfig: editor.IStandaloneEditorConstructionOptions = {
   fontSize: 14,
-  minimap: {
-    enabled: false,
-  },
-  wordWrap: 'on',
-  scrollbar: {
-    verticalScrollbarSize: 9,
-  },
+  minimap: { enabled: false },
+  wordWrap: 'on', // now properly typed
+  scrollbar: { verticalScrollbarSize: 9 },
   scrollBeyondLastLine: false,
   formatOnPaste: true,
   formatOnType: true,
