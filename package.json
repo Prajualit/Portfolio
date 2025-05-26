@@ -19,6 +19,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@firebase/testing": "^0.20.11",
     "@giscus/react": "^2.4.0",
     "@headlessui/react": "^1.7.19",
     "@mdx-js/loader": "^2.3.0",
@@ -30,6 +31,8 @@
     "clsx": "^1.2.1",
     "date-fns": "^2.30.0",
     "date-fns-tz": "^2.0.1",
+    "firebase": "^11.8.1",
+    "firebase-tools": "^14.4.0",
     "framer-motion": "^10.18.0",
     "gray-matter": "^4.0.3",
     "moment": "^2.30.1",
