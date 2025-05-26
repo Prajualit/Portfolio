@@ -1,3 +1,10 @@
+# Ignore SQL dump files
+*.sql
+*.dump
+
+# Ignore Prisma migration folders (optional if you want to exclude migrations)
+prisma/migrations/
+
 # dependencies
 /node_modules
 /.pnp
