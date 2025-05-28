@@ -16,12 +16,12 @@ const ProjectsDetailPage: NextPage<ProjectsDetailPageProps> = ({ project }) => {
   const PAGE_TITLE = project?.title;
   const PAGE_DESCRIPTION = project?.description;
 
-  const canonicalUrl = `https://aulianza.id/project/${project?.slug}`;
+  const canonicalUrl = `https://prajualittickoo.vercel.app/project/${project?.slug}`;
 
   return (
     <>
       <NextSeo
-        title={`${project?.title} - Project Ryan Aulia`}
+        title={`${project?.title} - Project Prajualit Tickoo`}
         description={project?.description}
         canonical={canonicalUrl}
         openGraph={{
@@ -29,7 +29,7 @@ const ProjectsDetailPage: NextPage<ProjectsDetailPageProps> = ({ project }) => {
           article: {
             publishedTime: project?.updated_at.toString(),
             modifiedTime: project?.updated_at.toString(),
-            authors: ['Ryan Aulia'],
+            authors: ['Prajualit Tickoo'],
           },
           url: canonicalUrl,
           images: [
@@ -37,7 +37,7 @@ const ProjectsDetailPage: NextPage<ProjectsDetailPageProps> = ({ project }) => {
               url: project?.image,
             },
           ],
-          siteName: 'Blog Ryan Aulia',
+          siteName: 'Blog Prajualit Tickoo',
         }}
       />
       <Container data-aos='fade-up'>

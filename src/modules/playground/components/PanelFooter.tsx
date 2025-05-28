@@ -18,8 +18,8 @@ const PanelFooter = ({
 }: PanelFooterProps) => {
   return (
     <div className='flex items-center justify-between rounded-b-md border border-t-0 border-neutral-700 bg-neutral-900 px-2 py-1'>
-      <div className='items-center  text-sm text-neutral-500'>
-        &copy; <a href='https://aulianza.id'>aulianza</a>
+      <div className='items-center text-sm text-neutral-500'>
+        &copy; <a href='https://prajualittickoo.vercel.app'>prickoo</a>
       </div>
       {isFullScreen ? (
         <Tooltip title='Close'>

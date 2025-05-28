@@ -36,12 +36,12 @@ const LearnContentPage: NextPage<ContentPageProps> = ({
     (a, b) => a.frontMatter.id - b.frontMatter.id,
   );
 
-  const canonicalUrl = `https://aulianza.id/learn/${content?.slug}`;
+  const canonicalUrl = `https://prajualittickoo.vercel.app/learn/${content?.slug}`;
 
   return (
     <>
       <NextSeo
-        title={`Learn ${title} - Ryan Aulia`}
+        title={`Learn ${title} - Prajualit Tickoo`}
         description={description}
         canonical={canonicalUrl}
         openGraph={{
@@ -51,7 +51,7 @@ const LearnContentPage: NextPage<ContentPageProps> = ({
               url: content?.image,
             },
           ],
-          siteName: 'Ryan Aulia',
+          siteName: 'Prajualit Tickoo',
         }}
       />
       <Container data-aos='fade-up'>
