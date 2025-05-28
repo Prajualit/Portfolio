@@ -5,7 +5,7 @@ export const CAREERS: CareerProps[] = [
     position: 'Web Developer Intern',
     company: 'Hlo',
     company_legal_name: 'Hlo Enterprise Legal+',
-    logo: '/images/careers/hlo.jpg',
+    logo: '/images/careers/Hlo.jpg',
     location: 'Chennai, India 🇮🇳',
     location_type: 'Remote',
     type: 'Part-time',
