@@ -3,7 +3,9 @@ import { NextSeo } from 'next-seo';
 
 import BackButton from '@/common/components/elements/BackButton';
 import Container from '@/common/components/elements/Container';
+import JsonLd from '@/common/components/elements/JsonLd';
 import PageHeading from '@/common/components/elements/PageHeading';
+import { generateBreadcrumbSchema, generateSoftwareApplicationSchema } from '@/common/helpers/structured-data';
 import prisma from '@/common/libs/prisma';
 import { ProjectItemProps } from '@/common/types/projects';
 import ProjectDetail from '@/modules/projects/components/ProjectDetail';
@@ -16,12 +18,26 @@ const ProjectsDetailPage: NextPage<ProjectsDetailPageProps> = ({ project }) => {
   const PAGE_TITLE = project?.title;
   const PAGE_DESCRIPTION = project?.description;
 
-  const canonicalUrl = `https://prajualittickoo.vercel.app/project/${project?.slug}`;
+  const canonicalUrl = `https://prajualit.vercel.app/projects/${project?.slug}`;
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://prajualit.vercel.app' },
+    { name: 'Projects', url: 'https://prajualit.vercel.app/projects' },
+    { name: project?.title, url: canonicalUrl },
+  ]);
+
+  const softwareSchema = generateSoftwareApplicationSchema({
+    name: project?.title,
+    description: project?.description,
+    url: project?.link_demo || canonicalUrl,
+    applicationCategory: 'WebApplication',
+    operatingSystem: 'Web Browser',
+  });
 
   return (
     <>
       <NextSeo
-        title={`${project?.title} - Project Prajualit Tickoo`}
+        title={`${project?.title} - Project by Prajualit Tickoo`}
         description={project?.description}
         canonical={canonicalUrl}
         openGraph={{
@@ -30,16 +46,31 @@ const ProjectsDetailPage: NextPage<ProjectsDetailPageProps> = ({ project }) => {
             publishedTime: project?.updated_at.toString(),
             modifiedTime: project?.updated_at.toString(),
             authors: ['Prajualit Tickoo'],
+            section: 'Technology',
+            tags: project?.stacks ? JSON.parse(project.stacks) : [],
           },
           url: canonicalUrl,
+          title: `${project?.title} - Project by Prajualit Tickoo`,
+          description: project?.description,
           images: [
             {
               url: project?.image,
+              width: 1200,
+              height: 630,
+              alt: `${project?.title} - Project Screenshot`,
             },
           ],
-          siteName: 'Blog Prajualit Tickoo',
+          siteName: 'Prajualit Tickoo Portfolio',
         }}
+        additionalMetaTags={[
+          {
+            name: 'keywords',
+            content: `${project?.title}, Prajualit Tickoo, ${project?.stacks ? JSON.parse(project.stacks).join(', ') : ''}, Web Development, Project`,
+          },
+        ]}
       />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={softwareSchema} />
       <Container data-aos='fade-up'>
         <BackButton url='/projects' />
         <PageHeading title={PAGE_TITLE} description={PAGE_DESCRIPTION} />

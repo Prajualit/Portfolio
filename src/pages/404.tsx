@@ -1,21 +1,30 @@
 import styled from '@emotion/styled';
 import { NextPage } from 'next';
+import { NextSeo } from 'next-seo';
 
 import Container from '@/common/components/elements/Container';
 
 const Custom404: NextPage = () => {
   return (
-    <Container
-      className='flex h-full flex-col items-center justify-center space-y-5 py-40 md:py-20'
-      data-aos='fade-up'
-    >
-      <StyledHeading title='404' className=' text-7xl font-bold'>
-        404
-      </StyledHeading>
-      <h2 className='animate-pulse text-center text-xl lg:text-xl'>
-        Whoops, there doesn&apos;t seem to be anything here!
-      </h2>
-    </Container>
+    <>
+      <NextSeo
+        title="Page Not Found - Prajualit Tickoo"
+        description="The page you're looking for doesn't exist. Return to Prajualit Tickoo's portfolio homepage."
+        noindex={true}
+        nofollow={true}
+      />
+      <Container
+        className='flex h-full flex-col items-center justify-center space-y-5 py-40 md:py-20'
+        data-aos='fade-up'
+      >
+        <StyledHeading title='404' className=' text-7xl font-bold'>
+          404
+        </StyledHeading>
+        <h2 className='animate-pulse text-center text-xl lg:text-xl'>
+          Whoops, there doesn&apos;t seem to be anything here!
+        </h2>
+      </Container>
+    </>
   );
 };
 

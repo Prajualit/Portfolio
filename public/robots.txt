@@ -1,9 +1,13 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /dashboard
+Disallow: /_next/
+Disallow: /static/
 
 # Host
-Host: https://aulianza.id
+Host: https://prajualit.vercel.app
 
 # Sitemaps
-Sitemap: https://aulianza.id/sitemap.xml
+Sitemap: https://prajualit.vercel.app/sitemap.xml

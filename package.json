@@ -1,5 +1,5 @@
 {
-  "name": "aulianza.id",
+  "name": "prajualit-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -16,7 +16,9 @@
     "test:watch": "jest --watch",
     "test": "jest",
     "test:ci": "jest --ci",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "seo:check": "node scripts/seo-check.js",
+    "seo:build": "npm run build && npm run seo:check"
   },
   "dependencies": {
     "@firebase/testing": "^0.20.11",

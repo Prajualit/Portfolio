@@ -25,7 +25,7 @@ const BlogDetailPage: NextPage<BlogDetailPageProps> = ({ blog }) => {
   const blogData = blog?.data || {};
 
   const slug = `blog/${blogData?.slug}?id=${blogData?.id}`;
-  const canonicalUrl = `https://prajualittickoo.vercel.app/${slug}`;
+  const canonicalUrl = `https://prajualit.vercel.app/${slug}`;
   const description = formatExcerpt(blogData?.excerpt?.rendered);
 
   const incrementViews = async () => {
