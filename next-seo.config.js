@@ -9,6 +9,10 @@ const defaultSEOConfig = {
   canonical: canonicalUrl,
   additionalMetaTags: [
     {
+      name: 'google-site-verification',
+      content: 'googled7a25ed388d4a145',
+    },
+    {
       name: 'viewport',
       content: 'width=device-width, initial-scale=1',
     },
