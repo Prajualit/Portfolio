@@ -44,7 +44,7 @@ export default function Document() {
         <meta name='msapplication-TileColor' content='#121212' />
         <meta name='application-name' content='Prajualit Tickoo Portfolio' />
         <meta name='apple-mobile-web-app-title' content='Prajualit Tickoo' />
-        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='mobile-web-app-capable' content='yes' />
         <meta name='apple-mobile-web-app-status-bar-style' content='black' />
         
         {/* Preconnect to external domains for performance */}
