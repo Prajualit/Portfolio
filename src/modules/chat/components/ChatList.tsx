@@ -70,6 +70,11 @@ const ChatList = ({
         className='space-y-5 overflow-y-auto py-4'
         style={{ height: chatListHeight }}
       >
+        {messages?.length === 0 && (
+          <div className="text-center text-gray-500 py-8">
+            No messages yet. Be the first to say something!
+          </div>
+        )}
         {messages?.map((chat, index) => (
           <ChatItem key={index} onDelete={onDeleteMessage} {...chat} />
         ))}
