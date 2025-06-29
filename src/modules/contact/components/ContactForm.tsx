@@ -1,4 +1,3 @@
-import axios from 'axios';
 import clsx from 'clsx';
 import { useState } from 'react';
 import { FiClock as ClockIcon } from 'react-icons/fi';
@@ -40,22 +39,54 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const hasErrors = Object.values(formErrors).some((error) => error);
+    // Validate form
+    const errors: Partial<FormDataProps> = {};
+    if (!formData.name.trim()) errors.name = 'Name is required';
+    if (!formData.email.trim()) errors.email = 'Email is required';
+    if (!formData.message.trim()) errors.message = 'Message is required';
 
-    if (!hasErrors) {
-      setIsLoading(true);
-      try {
-        const response = await axios.post('/api/contact', { formData });
-        if (response.status === 200) {
-          alert('Message sent!');
-          setFormData(formInitialState);
-        }
-      } catch (error) {
-        alert(error);
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      console.log('Submitting form data directly to Web3Forms:', formData);
+      
+      // Create form data for Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append('access_key', '0862de0a-0e07-4031-aa50-7b36e1587f0e');
+      web3FormData.append('name', formData.name);
+      web3FormData.append('email', formData.email);
+      web3FormData.append('message', formData.message);
+      web3FormData.append('subject', `New Contact Form Message from ${formData.name}`);
+      web3FormData.append('from_name', formData.name);
+      
+      // Submit directly to Web3Forms from the browser
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: web3FormData
+      });
+      
+      const result = await response.json();
+      console.log('Web3Forms response:', result);
+      
+      if (response.ok && result.success) {
+        alert('Message sent successfully! I\'ll get back to you soon.');
+        setFormData(formInitialState);
+        setFormErrors({});
+      } else {
+        throw new Error(result.message || 'Failed to send message');
       }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      
+      const errorMessage = error instanceof Error ? error.message : 'Failed to send message';
+      alert(`Error: ${errorMessage}. Please try again later.`);
+    } finally {
       setIsLoading(false);
-    } else {
-      alert('Error!');
     }
   };
 
