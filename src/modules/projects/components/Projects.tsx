@@ -13,7 +13,9 @@ interface ProjectsComponentProps {
 }
 
 const Projects = ({ projects, loadMore, hasMore }: ProjectsComponentProps) => {
-  const filteredProjects = projects.filter((project) => project?.is_show);
+  // Ensure projects is always an array
+  const safeProjects = Array.isArray(projects) ? projects : [];
+  const filteredProjects = safeProjects.filter((project) => project?.is_show);
 
   if (filteredProjects.length === 0) {
     return <EmptyState message='No Data' />;

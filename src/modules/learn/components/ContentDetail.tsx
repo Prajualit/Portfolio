@@ -46,6 +46,7 @@ const ContentDetail = ({ content, frontMatter }: ContentDetailProps) => {
 
   const getNextOrPreviousContent = useCallback(
     (contents: ContentListItemProps[], step: number) => {
+      if (!Array.isArray(contents)) return null;
       return contents.find((item) => item.id === currentId + step) || null;
     },
     [currentId],
@@ -66,7 +67,9 @@ const ContentDetail = ({ content, frontMatter }: ContentDetailProps) => {
   }, [resContentData]);
 
   useEffect(() => {
-    const getId = contentList?.find(
+    if (!Array.isArray(contentList) || contentList.length === 0) return;
+    
+    const getId = contentList.find(
       (item: ContentListItemProps) => item.slug === contentSlug,
     );
     const currentContentId = getId?.id as number;

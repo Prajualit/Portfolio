@@ -25,7 +25,9 @@ const NowPlayingBar = () => {
     fetcher,
   );
 
-  const activeDevice = devicesData?.find((device) => device.is_active);
+  // Ensure devicesData is always an array
+  const devices = Array.isArray(devicesData) ? devicesData : [];
+  const activeDevice = devices.find((device) => device.is_active);
 
   const handleOpenSongUrl = (url?: string) => {
     url && window.open(url, '_blank');
@@ -91,7 +93,7 @@ const NowPlayingBar = () => {
                 </div>
               </div>
             </Popover.Button>
-            <DevicePopover isShow={isShowDeviceList} devices={devicesData} />
+            <DevicePopover isShow={isShowDeviceList} devices={devices} />
           </Popover>
         )}
       </div>

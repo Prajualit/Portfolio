@@ -6,12 +6,25 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const response = await getAvailableDevices();
+  try {
+    const response = await getAvailableDevices();
 
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=60, stale-while-revalidate=30',
-  );
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=60, stale-while-revalidate=30',
+    );
 
-  return res.status(200).json(response?.data);
+    // Ensure we always return an array
+    return res.status(200).json(response?.data || []);
+  } catch (error) {
+    console.error('Spotify API error:', error);
+    
+    // Return empty array when Spotify is not configured
+    res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=60, stale-while-revalidate=30',
+    );
+    
+    return res.status(200).json([]);
+  }
 }

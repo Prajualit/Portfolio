@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 
@@ -21,8 +21,11 @@ const PAGE_DESCRIPTION =
 const ProjectsPage: NextPage<ProjectsPageProps> = ({ projects }) => {
   const [visibleProjects, setVisibleProjects] = useState(6);
 
+  // Ensure projects is always an array
+  const safeProjects = Array.isArray(projects) ? projects : [];
+
   const loadMore = () => setVisibleProjects((prev) => prev + 2);
-  const hasMore = visibleProjects < projects.length;
+  const hasMore = visibleProjects < safeProjects.length;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://prajualit.vercel.app' },
@@ -54,7 +57,7 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({ projects }) => {
       <Container data-aos='fade-up'>
         <PageHeading title={PAGE_TITLE} description={PAGE_DESCRIPTION} />
         <Projects
-          projects={projects.slice(0, visibleProjects)}
+          projects={safeProjects.slice(0, visibleProjects)}
           loadMore={loadMore}
           hasMore={hasMore}
         />
@@ -65,21 +68,37 @@ const ProjectsPage: NextPage<ProjectsPageProps> = ({ projects }) => {
 
 export default ProjectsPage;
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const response = await prisma.projects.findMany({
-    orderBy: [
-      {
-        is_featured: 'desc',
-      },
-      {
-        updated_at: 'desc',
-      },
-    ],
-  });
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const response = await prisma.projects.findMany({
+      orderBy: [
+        {
+          is_featured: 'desc',
+        },
+        {
+          updated_at: 'desc',
+        },
+      ],
+    });
 
-  return {
-    props: {
-      projects: JSON.parse(JSON.stringify(response)),
-    },
-  };
+    return {
+      props: {
+        projects: JSON.parse(JSON.stringify(response)),
+      },
+      // Regenerate the page at most once every hour
+      revalidate: 3600,
+    };
+  } catch (error) {
+    console.error('Database connection error in projects page:', error);
+    
+    // Return fallback data when database is not available
+    // Provide a complete empty array structure that matches ProjectItemProps[]
+    return {
+      props: {
+        projects: [] as ProjectItemProps[],
+      },
+      // Try again in 60 seconds when there's an error
+      revalidate: 60,
+    };
+  }
 };

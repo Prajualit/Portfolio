@@ -25,6 +25,11 @@ const TOP_TRACKS_ENDPOINT = `${BASE_URL}/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async (): Promise<AccessTokenResponseProps> => {
+  // Check if Spotify credentials are configured
+  if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
+    throw new Error('Spotify credentials not configured');
+  }
+
   const response = await axios.post(
     TOKEN_ENDPOINT,
     querystring.stringify({
