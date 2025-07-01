@@ -48,7 +48,10 @@ const ChatAuth = ({ isWidget = false }: { isWidget?: boolean }) => {
       }
     } catch (err) {
       setError(`An unexpected error occurred. Please try again.`);
-      console.error('Sign in error:', err);
+      if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-console
+        console.error('Sign in error:', err);
+      }
     } finally {
       setIsLoading(null);
     }

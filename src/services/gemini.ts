@@ -56,9 +56,13 @@ When responding:
 6. Use a conversational but professional tone`;
 
 export const postGeminiPrompt = async (prompt: string) => {
-  console.log('🚀 Gemini API Request:', { prompt: prompt.substring(0, 100) + '...' });
+  if (process.env.NODE_ENV === 'development') {
+    // eslint-disable-next-line no-console
+    console.log('🚀 Gemini API Request:', { prompt: prompt.substring(0, 100) + '...' });
+  }
   
   if (!GEMINI_API_KEY) {
+    // eslint-disable-next-line no-console
     console.error('❌ GEMINI_API_KEY is not set');
     throw new Error('Gemini API key is not configured');
   }
@@ -111,25 +115,31 @@ export const postGeminiPrompt = async (prompt: string) => {
       }
     );
 
-    console.log('✅ Gemini API Response:', { 
-      status: response.status, 
-      candidatesCount: response.data?.candidates?.length || 0 
-    });
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.log('✅ Gemini API Response:', { 
+        status: response.status, 
+        candidatesCount: response.data?.candidates?.length || 0 
+      });
+    }
 
     return {
       status: response.status,
       data: response.data,
     };
   } catch (error: any) {
-    console.error('❌ Gemini API Error:', {
-      message: error.message,
-      status: error.response?.status,
-      data: error.response?.data,
-      config: {
-        url: error.config?.url,
-        method: error.config?.method,
-      }
-    });
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.error('❌ Gemini API Error:', {
+        message: error.message,
+        status: error.response?.status,
+        data: error.response?.data,
+        config: {
+          url: error.config?.url,
+          method: error.config?.method,
+        }
+      });
+    }
 
     return {
       status: error.response?.status || 500,
@@ -148,7 +158,10 @@ export const sendMessageToGemini = async (prompt: string) => {
     const data = response.data;
     return data?.reply;
   } catch (error) {
-    console.error('Gemini API error:', error);
+    if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.error('Gemini API error:', error);
+    }
     return '';
   }
 };

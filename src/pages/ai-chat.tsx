@@ -4,13 +4,9 @@ import { NextSeo } from 'next-seo';
 import BackButton from '@/common/components/elements/BackButton';
 import Container from '@/common/components/elements/Container';
 import PageHeading from '@/common/components/elements/PageHeading';
-import Layout from '@/common/components/layouts';
-
 import AIChat from '@/modules/chat/components/AIChat';
 
-interface AIChatPageProps {}
-
-const AIChatPage: NextPage<AIChatPageProps> = () => {
+const AIChatPage: NextPage = () => {
   const PAGE_TITLE = 'AI Assistant';
   const PAGE_DESCRIPTION = 'Chat with Prajualit\'s AI assistant to learn about his skills, projects, and experience in web development.';
   const canonicalUrl = 'https://prajualit.vercel.app/ai-chat';

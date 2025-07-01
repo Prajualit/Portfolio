@@ -53,7 +53,10 @@ const ContactForm = () => {
 
     setIsLoading(true);
     try {
-      console.log('Submitting form data directly to Web3Forms:', formData);
+      if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-console
+        console.log('Submitting form data directly to Web3Forms:', formData);
+      }
       
       // Create form data for Web3Forms
       const web3FormData = new FormData();
@@ -71,7 +74,10 @@ const ContactForm = () => {
       });
       
       const result = await response.json();
-      console.log('Web3Forms response:', result);
+      if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-console
+        console.log('Web3Forms response:', result);
+      }
       
       if (response.ok && result.success) {
         alert('Message sent successfully! I\'ll get back to you soon.');
@@ -81,7 +87,10 @@ const ContactForm = () => {
         throw new Error(result.message || 'Failed to send message');
       }
     } catch (error) {
-      console.error('Contact form error:', error);
+      if (process.env.NODE_ENV === 'development') {
+        // eslint-disable-next-line no-console
+        console.error('Contact form error:', error);
+      }
       
       const errorMessage = error instanceof Error ? error.message : 'Failed to send message';
       alert(`Error: ${errorMessage}. Please try again later.`);
