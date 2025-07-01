@@ -4,6 +4,7 @@ import { PiCirclesFourFill } from 'react-icons/pi';
 import {
   SiCss3,
   SiExpress,
+  SiFirebase,
   SiGithubactions,
   SiJavascript,
   SiMongodb,
@@ -68,6 +69,7 @@ export const STACKS: stacksProps = {
   'Github Actions': (
     <SiGithubactions size={iconSize} className='text-gray-400' />
   ),
+  Firebase: <SiFirebase size={iconSize} className='text-yellow-500' />,
 
   // Tools
   Git: <FaGitAlt size={iconSize} className='text-red-500' />,
