@@ -22,7 +22,7 @@ import { MenuItemProps } from '@/common/types/menu';
 import AiLoading from '@/modules/cmdpallete/components/AiLoading';
 import AiResponses from '@/modules/cmdpallete/components/AiResponses';
 import QueryNotFound from '@/modules/cmdpallete/components/QueryNotFound';
-import { sendMessage } from '@/services/chatgpt';
+import { sendMessageToGemini } from '@/services/gemini';
 
 interface MenuOptionItemProps extends MenuItemProps {
   click?: () => void;
@@ -138,7 +138,7 @@ const CommandPalette = () => {
     setAskAssistantClicked(true);
     setAiLoading(true);
 
-    const response = await sendMessage(queryDebounce);
+    const response = await sendMessageToGemini(queryDebounce);
 
     setAiResponse(response);
     setAiLoading(false);

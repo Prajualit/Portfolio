@@ -10,11 +10,11 @@ import {
   FiBookOpen as LearnIcon,
   FiCoffee as ProjectIcon,
   FiCpu as DashboardIcon,
-  FiPieChart as AnalyticsIcon,
   FiPocket as HomeIcon,
   FiRss as BlogIcon,
   FiUser as ProfileIcon,
 } from 'react-icons/fi';
+import { HiOutlineSparkles as AIIcon } from 'react-icons/hi2';
 import { PiChatCircleDotsBold as ChatIcon } from 'react-icons/pi';
 import { SiJavascript } from 'react-icons/si';
 
@@ -75,6 +75,15 @@ export const MENU_ITEMS: MenuItemProps[] = [
     isShow: true,
     isExternal: false,
     eventName: 'Pages: About',
+    type: 'Pages',
+  },
+  {
+    title: 'AI Assistant',
+    href: '/ai-chat',
+    icon: <AIIcon size={iconSize} />,
+    isShow: true,
+    isExternal: false,
+    eventName: 'Pages: AI Chat',
     type: 'Pages',
   },
   {
@@ -164,13 +173,5 @@ export const SOCIAL_MEDIA: MenuItemProps[] = [
 ];
 
 export const EXTERNAL_LINKS: MenuItemProps[] = [
-  {
-    title: 'Analytics',
-    href: 'https://analytics.aulianza.com/share/LK5kiRuosw9pORLa/aulianza.id',
-    icon: <AnalyticsIcon size={iconSize} />,
-    isShow: true,
-    isExternal: true,
-    eventName: 'External Link: Analytics',
-    type: 'Link',
-  },
+  // Analytics option removed
 ];
