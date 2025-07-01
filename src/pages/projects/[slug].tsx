@@ -47,7 +47,7 @@ const ProjectsDetailPage: NextPage<ProjectsDetailPageProps> = ({ project }) => {
             modifiedTime: project?.updated_at.toString(),
             authors: ['Prajualit Tickoo'],
             section: 'Technology',
-            tags: project?.stacks ? JSON.parse(project.stacks) : [],
+            tags: project?.stacks ? project.stacks.split(',').map(stack => stack.trim()) : [],
           },
           url: canonicalUrl,
           title: `${project?.title} - Project by Prajualit Tickoo`,
@@ -65,7 +65,7 @@ const ProjectsDetailPage: NextPage<ProjectsDetailPageProps> = ({ project }) => {
         additionalMetaTags={[
           {
             name: 'keywords',
-            content: `${project?.title}, Prajualit Tickoo, ${project?.stacks ? JSON.parse(project.stacks).join(', ') : ''}, Web Development, Project`,
+            content: `${project?.title}, Prajualit Tickoo, ${project?.stacks ? project.stacks.split(',').map(stack => stack.trim()).join(', ') : ''}, Web Development, Project`,
           },
         ]}
       />

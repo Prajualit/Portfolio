@@ -14,7 +14,7 @@ const ProjectDetail = ({
   link_github,
   content,
 }: ProjectItemProps) => {
-  const stacksArray = JSON.parse(stacks);
+  const stacksArray = stacks.split(',').map((stack) => stack.trim());
 
   return (
     <div className='space-y-8'>

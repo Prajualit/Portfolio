@@ -4,7 +4,6 @@ import { PiCirclesFourFill } from 'react-icons/pi';
 import {
   SiCss3,
   SiExpress,
-  SiFirebase,
   SiGithubactions,
   SiJavascript,
   SiMongodb,
@@ -25,7 +24,7 @@ import {
   SiTypescript,
   SiVite,
 } from 'react-icons/si';
-import { TbBrandFramerMotion } from 'react-icons/tb';
+import { TbBrandFramerMotion, TbBrandFirebase } from 'react-icons/tb';
 
 export type stacksProps = {
   [key: string]: JSX.Element;
@@ -69,7 +68,7 @@ export const STACKS: stacksProps = {
   'Github Actions': (
     <SiGithubactions size={iconSize} className='text-gray-400' />
   ),
-  Firebase: <SiFirebase size={iconSize} className='text-yellow-500' />,
+  Firebase: <TbBrandFirebase size={iconSize} className='text-yellow-500' />,
 
   // Tools
   Git: <FaGitAlt size={iconSize} className='text-red-500' />,
