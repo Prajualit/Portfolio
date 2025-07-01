@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 const SYSTEM_PROMPT = `You are an AI assistant for Prajualit Tickoo's portfolio website. Here's comprehensive information about Prajualit:
@@ -56,67 +56,87 @@ When responding:
 6. Use a conversational but professional tone`;
 
 export const postGeminiPrompt = async (prompt: string) => {
-  const fullPrompt = `${SYSTEM_PROMPT}\n\nUser Question: ${prompt}`;
+  console.log('🚀 Gemini API Request:', { prompt: prompt.substring(0, 100) + '...' });
   
-  const response = await axios.post(
-    `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
-    {
-      contents: [
-        {
-          parts: [
-            {
-              text: fullPrompt
-            }
-          ]
-        }
-      ],
-      generationConfig: {
-        temperature: 0.7,
-        topK: 40,
-        topP: 0.95,
-        maxOutputTokens: 500,
-      },
-      safetySettings: [
-        {
-          category: "HARM_CATEGORY_HARASSMENT",
-          threshold: "BLOCK_MEDIUM_AND_ABOVE"
-        },
-        {
-          category: "HARM_CATEGORY_HATE_SPEECH",
-          threshold: "BLOCK_MEDIUM_AND_ABOVE"
-        },
-        {
-          category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-          threshold: "BLOCK_MEDIUM_AND_ABOVE"
-        },
-        {
-          category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-          threshold: "BLOCK_MEDIUM_AND_ABOVE"
-        }
-      ]
-    },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
-
-  const status = response?.status;
-
-  if (status >= 400) {
-    return {
-      status,
-      message: response?.statusText,
-    };
+  if (!GEMINI_API_KEY) {
+    console.error('❌ GEMINI_API_KEY is not set');
+    throw new Error('Gemini API key is not configured');
   }
 
-  const data = response.data;
+  const fullPrompt = `${SYSTEM_PROMPT}\n\nUser Question: ${prompt}`;
+  
+  try {
+    const response = await axios.post(
+      `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
+      {
+        contents: [
+          {
+            parts: [
+              {
+                text: fullPrompt
+              }
+            ]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          topK: 40,
+          topP: 0.95,
+          maxOutputTokens: 500,
+        },
+        safetySettings: [
+          {
+            category: "HARM_CATEGORY_HARASSMENT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            category: "HARM_CATEGORY_HATE_SPEECH",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          },
+          {
+            category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+            threshold: "BLOCK_MEDIUM_AND_ABOVE"
+          }
+        ]
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        timeout: 30000, // 30 second timeout
+      }
+    );
 
-  return {
-    status,
-    data,
-  };
+    console.log('✅ Gemini API Response:', { 
+      status: response.status, 
+      candidatesCount: response.data?.candidates?.length || 0 
+    });
+
+    return {
+      status: response.status,
+      data: response.data,
+    };
+  } catch (error: any) {
+    console.error('❌ Gemini API Error:', {
+      message: error.message,
+      status: error.response?.status,
+      data: error.response?.data,
+      config: {
+        url: error.config?.url,
+        method: error.config?.method,
+      }
+    });
+
+    return {
+      status: error.response?.status || 500,
+      message: error.response?.data?.error?.message || error.message,
+      data: null,
+    };
+  }
 };
 
 export const sendMessageToGemini = async (prompt: string) => {

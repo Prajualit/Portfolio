@@ -16,7 +16,7 @@ const AIChatPage: NextPage<AIChatPageProps> = () => {
   const canonicalUrl = 'https://prajualit.vercel.app/ai-chat';
 
   return (
-    <Layout>
+    <>
       <NextSeo
         title={`${PAGE_TITLE} - Prajualit Tickoo`}
         description={PAGE_DESCRIPTION}
@@ -37,7 +37,7 @@ const AIChatPage: NextPage<AIChatPageProps> = () => {
           </div>
         </div>
       </Container>
-    </Layout>
+    </>
   );
 };
 
